@@ -470,6 +470,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
                         upgradeFrom5To6(db);
                         oldVersion++;
                         break;
+                    // TODO(gs) 14/6/18 - Missing migration.
                     default:
                         throw new IllegalStateException("not implemented");
                 }
@@ -490,7 +491,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
                     + COLUMN_REQUIRES_DEVICE_IDLE + " integer, "
                     + COLUMN_EXACT + " integer, "
                     + COLUMN_NETWORK_TYPE + " text not null, "
-                    + COLUMN_EXTRAS + " text, "
+                    + COLUMN_EXTRAS + " text unique not null, "
                     + COLUMN_NUM_FAILURES + " integer, "
                     + COLUMN_SCHEDULED_AT + " integer, "
                     + COLUMN_STARTED + " integer, "
